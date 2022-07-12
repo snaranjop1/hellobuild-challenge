@@ -6,12 +6,17 @@ const login = (email, password) => {
   const user = localStorage.getItem("user");
 
   if (user) {
-    return email === user.email && password === user.password;
+    const parsedUser = JSON.parse(user);
+    return email === parsedUser.email && password === parsedUser.password;
   }
 
   return false;
 };
 
-const AuthService = { signup, login };
+const isAuth = () => {
+  return localStorage.getItem("user");
+};
+
+const AuthService = { signup, login, isAuth };
 
 export default AuthService;

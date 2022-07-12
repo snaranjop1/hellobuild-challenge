@@ -3,8 +3,14 @@ import { Link, Navigate } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 
 export default function Login() {
+  const isAuth = AuthService.isAuth();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <section className="vh-100 bg-dark">
       <div className="d-flex column justify-content-center align-items-center h-100">
@@ -15,7 +21,7 @@ export default function Login() {
           <h1>Login</h1>
           {success && <Navigate to="/" replace={true} />}
           {error && (
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
               Invalid Credentials
             </div>
           )}
