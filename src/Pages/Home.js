@@ -13,10 +13,11 @@ export default function Home() {
 
   useEffect(() => {
     if (code) {
-      console.log(code);
-      console.log(GithubService.requestGithubToken(code));
+      fetch(`https://shark-app-c39bg.ondigitalocean.app/token/${code}`)
+        .then((res) => res.json())
+        .then((res) => GithubService.saveToken(res.token));
     }
-  }, [code]);
+  }, []);
 
   return (
     <div className="container my-4">
