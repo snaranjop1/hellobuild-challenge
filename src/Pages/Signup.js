@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 
 function Signup() {
@@ -54,7 +55,7 @@ function Signup() {
             </button>
           </form>
           <p className="text-center">
-            Already have an account? <a href="/">Login</a>
+            Already have an account? <Link to="login">Login</Link>
           </p>
         </div>
       </div>
