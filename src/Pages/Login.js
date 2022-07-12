@@ -3,13 +3,8 @@ import { Link, Navigate } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 
 export default function Login() {
-  const isAuth = AuthService.isAuth();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
-  if (isAuth) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <section className="vh-100 bg-dark">

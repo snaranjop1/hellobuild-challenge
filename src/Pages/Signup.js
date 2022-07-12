@@ -3,12 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 
 function Signup() {
-  const isAuth = AuthService.isAuth();
   const [done, setDone] = useState(false);
-
-  if (isAuth) {
-    return <Navigate to="/" />;
-  }
 
   return (
     <section className="vh-100 bg-dark">
